@@ -17,10 +17,12 @@ axios.get(apiUrl)
                 axios.get(`https://api.goapi.io/regional/kota?provinsi_id=${city.id}&api_key=${apiKey}`)
                 .then(response => {
                     const kab_provinsi = response.data.data;
-                    console.log(kab_provinsi)
                     const list_kab = document.getElementById('list_kabupaten');
-                    
+                    const listSelect = list_kab.querySelectorAll('li');
                     kab_provinsi.forEach(kabupaten => {
+                        if (listSelect.length > 0) {
+                            listSelect.forEach(item => item.remove());
+                        }
                         const listItem = document.createElement('li');
                         listItem.textContent = kabupaten.name;
                         list_kab.appendChild(listItem);
