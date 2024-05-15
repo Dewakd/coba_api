@@ -1,0 +1,7 @@
+#cities-list{
+
+}
+
+#cities-list > li{
+    list-style: none;
+}
